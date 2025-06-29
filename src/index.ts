@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import swaggerUi from 'swagger-ui-express';
 import swaggerJSDoc, { Options } from 'swagger-jsdoc';
 import authRouter from './routes/auth.routes';
+import sayayinRouter from './routes/sayayin.routes';
 dotenv.config();
 
 const app = express();
@@ -22,6 +23,7 @@ app.use(express.json());
 
 // 🧪 Ruta Auth
 app.use('/api/auth', authRouter);
+app.use('/api/sayayines', sayayinRouter);
 // 🧬 MongoDB
 mongoose.connect(MONGO_URI, { dbName: 'vegito-db' })
     .then(() => console.log('✅ MongoDB conectado'))
@@ -40,9 +42,8 @@ const swaggerOptions: Options = {
 };
 
 const swaggerSpec = swaggerJSDoc(swaggerOptions);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-// 🧪 Ruta de prueba
 
 // 🚀 Server
 app.listen(PORT, () => {
