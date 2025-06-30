@@ -14,11 +14,6 @@ API RESTful desarrollada en Node.js y MongoDB para gestionar personajes y transf
 
 ---
 
-## ⚙️ Usuario Precargado
-
-Email :super_sayan@vegito.com
-Password: 12345
-
 ## ⚙️ Instalación local
 
 ### 1. Clonar proyecto
@@ -35,7 +30,7 @@ docker compose up
 4. Ver servicios corriendo
 Backend: http://localhost:3000
 Swagger: http://localhost:3000/swagger/
-MongoDB: localhost:27017 
+MongoDB: localhost:27017/vegito-db 
 
 📘 Documentación Swagger
 Accesible en:
