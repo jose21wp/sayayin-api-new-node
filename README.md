@@ -16,14 +16,14 @@ API RESTful desarrollada en Node.js y MongoDB para gestionar personajes y transf
 
 ## ⚙️ Instalación local
 
-### 1. Clonar proyecto
+### 1.🐙 Clonar proyecto
 
 ```bash
 git clone https://github.com/jose21wp/sayayin-api-new-node.git
 cd sayayin-api
 ```
 
-### 2. Iniciar con Docker
+### 2.🐳 Iniciar con Docker
 
 PD: Antes de ejecutar docker verificar que este corriendo el servicio de docker en su equipo o si no no arrancará.
 
@@ -31,11 +31,11 @@ PD: Antes de ejecutar docker verificar que este corriendo el servicio de docker 
 docker compose up
 ```
 
-### 3. Verificar con Swagger y conexiones
+### 3.🟢 Verificar con Swagger y conexiones
 
 Backend: [http://localhost:3000](http://localhost:3000)  
 Swagger: [http://localhost:3000/swagger/](http://localhost:3000/swagger/)  
-MongoDB: [localhost:27017/vegito-db](mongodb://localhost:27017/vegito-db)
+MongoDB: [vegito-db](mongodb://localhost:27017/vegito-db)
 
 ### 3.1. Como empezar
 
@@ -43,13 +43,8 @@ MongoDB: [localhost:27017/vegito-db](mongodb://localhost:27017/vegito-db)
 - 2.Ingresar Credenciales creadas en /api/auth/login, esto trae un TOKEN que es requerido en algunos endpoints.
 - 3.Interactuar con los endpoint en Postman o en Swagger.
 
-📘 Documentación Swagger
+### 4.🧪 Base de datos desde Docker
 
-Accesible en: [http://localhost:3000/swagger/](http://localhost:3000/swagger/)  
-
-Incluye definición de esquemas, validaciones y ejemplos de payloads.
-
-🧪 Base de datos
 Para usar la consola de MongoDB desde Docker Desktop:
 
 ```bash
@@ -61,22 +56,22 @@ db.sayayins.find().pretty() # Colecciones de sayayins del proyecto
 db.users.find().pretty() # Colecciones de usuarios del proyecto
 ```
 
-### 4. 🛠️ Endpoints disponibles
+### 5. 🛠️ Endpoints disponibles
 
 ### Sayayins
 
-GET /api/sayayins
-GET /api/sayayins/:id
-POST /api/sayayins
-PUT /api/sayayins/:id
-DELETE /api/sayayins/:id
+- GET /api/sayayins
+- GET /api/sayayins/:id
+- POST /api/sayayins
+- PUT /api/sayayins/:id
+- DELETE /api/sayayins/:id
 
 ### Users
 
-POST /api/auth/register # Registra un usuario
-POST /api/auth/login # Devuelve el token
+- POST /api/auth/register # Registra un usuario
+- POST /api/auth/login # Devuelve el token
 
-### 5.🧙‍♂️ Body ejemplo Sayayin
+### 6.🧙‍♂️ Body ejemplo Sayayin
 
 ```bash
 json
@@ -117,8 +112,9 @@ json
 }
 ```
 
-### 6.📂 Estructura del proyecto
+### 7.📂 Estructura del proyecto
 
+```bash
 sayayin-api/
 ├──scripts/
     └── seed.ts # Hace un insert de sayayines
@@ -137,6 +133,7 @@ sayayin-api/
 ├── package.json # Dependencias y scripts
 ├── tsconfig.json # Configuración de TypeScript
 └── README.md # Documentación del proyecto
+```
 
 ✨ Autor
 Creado con pasión por Jose Espinoza Miranda
