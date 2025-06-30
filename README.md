@@ -33,10 +33,10 @@ docker compose up
 
 ### 3.🟢 Verificar con Swagger y conexiones
 
-Backend: [http://localhost:3000](http://localhost:3000)  
-Swagger: [http://localhost:3000/swagger/](http://localhost:3000/swagger/)  
-MongoDB: [mongodb://localhost:27017/vegito-db](mongodb://localhost:27017/vegito-db)
-Postman: [http://localhost:3000/swagger.json](http://localhost:3000/swagger.json)
+- Backend: [http://localhost:3000](http://localhost:3000)  
+- Swagger: [http://localhost:3000/swagger/](http://localhost:3000/swagger/)  
+- MongoDB: [mongodb://localhost:27017/vegito-db](mongodb://localhost:27017/vegito-db)  
+- Postman: [http://localhost:3000/swagger.json](http://localhost:3000/swagger.json)  
 
 ### 3.1. Como empezar
 
