@@ -26,7 +26,9 @@ export const obtenerSayayines = async (_req: Request, res: Response) => {
 
 export const obtenerSayayin = async (req: Request, res: Response) => {
   try {
-    const uno = await Sayayin.findById(req.params.id);
+    console.log(req.params.id);
+
+    const uno = await Sayayin.findOne({ id: req.params.id });
     uno
       ? res.json(uno)
       : res.status(404).json({ message: 'Sayayin no encontrado' });
@@ -37,7 +39,7 @@ export const obtenerSayayin = async (req: Request, res: Response) => {
 
 export const actualizarSayayin = async (req: Request, res: Response) => {
   try {
-    const actualizado = await Sayayin.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const actualizado = await Sayayin.findOneAndUpdate({id:req.params.id}, req.body, { new: true });
     actualizado
       ? res.json(actualizado)
       : res.status(404).json({ message: 'Sayayin no encontrado' });
@@ -48,7 +50,7 @@ export const actualizarSayayin = async (req: Request, res: Response) => {
 
 export const eliminarSayayin = async (req: Request, res: Response) => {
   try {
-    const eliminado = await Sayayin.findByIdAndDelete(req.params.id);
+    const eliminado = await Sayayin.findOneAndDelete({ id: req.params.id });
     eliminado
       ? res.json({ message: 'Sayayin eliminado' })
       : res.status(404).json({ message: 'Sayayin no encontrado' });

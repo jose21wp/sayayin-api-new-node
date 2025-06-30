@@ -23,7 +23,8 @@ app.use(express.json());
 
 // 🧪 Ruta Auth
 app.use('/api/auth', authRouter);
-app.use('/api/sayayines', sayayinRouter);
+// 🧪 Ruta Sayayin
+app.use('/api/sayayins', sayayinRouter);
 // 🧬 MongoDB
 mongoose.connect(MONGO_URI, { dbName: 'vegito-db' })
     .then(() => console.log('✅ MongoDB conectado'))
