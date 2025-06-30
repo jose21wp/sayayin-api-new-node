@@ -19,15 +19,14 @@ API RESTful desarrollada en Node.js y MongoDB para gestionar personajes y transf
 ### 1. Clonar proyecto
 
 ```bash
-git clone https://github.com/jose21wp/sayayin-api-node.git
+git clone https://github.com/jose21wp/sayayin-api-new-node.git
 cd sayayin-api
 
-3. Iniciar con Docker
-PD: Antes de ejecutar docker verificar que este corriendo el servicio de docker en su equipo o si no no arrancará
-
+### 2. Iniciar con Docker
+PD: Antes de ejecutar docker verificar que este corriendo el servicio de docker en su equipo o si no no arrancará.
 docker compose up
 
-4. Ver servicios corriendo
+### 3. Verificar con Swagger y conexiones
 Backend: http://localhost:3000
 Swagger: http://localhost:3000/swagger/
 MongoDB: localhost:27017/vegito-db 
@@ -100,16 +99,14 @@ json
 📂 Estructura del proyecto
 sayayin-api/ 
 ├──scripts/
-    └── seed.ts # Hace un inser de sayayines
+    └── seed.ts # Hace un insert de sayayines
 ├──src/
     ├── config/ # Configuración general 
     ├── controllers/ # Lógica de negocio por ruta 
-    ├── docs/ # Documentación Swagger y archivos YAML 
     ├── middlewares/ # Validaciones de auth
     ├── models/ # Esquemas de Mongoose 
-    ├── repositories/ # Acceso a datos y lógica 
     ├── routes/ # Rutas principales de la API 
-    ├── services/ # Servicios
+    └── index.ts # server api
 ├── .dockerignore # Exclusiones para Docker build 
 ├── .env # Variables de entorno 
 ├── docker-compose.yaml # Esto hace la magia para que se creen los Dockers
