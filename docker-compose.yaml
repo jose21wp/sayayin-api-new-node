@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  #################################################
+  # 1) Servicio: MongoDB 7
+  #################################################
+  mongo:
+    image: mongo:7
+    container_name: sayayin-mongo
+    restart: always
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - backend-network
+
+  #################################################
+  # 2) Servicio: API Node.js 22
+  #################################################
+  api:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    container_name: back-sayayin-node
+    restart: on-failure
+    env_file:
+      - ./.env
+    ports:
+      - '3000:3000'
+    depends_on:
+      - mongo
+    networks:
+      - backend-network
+
+volumes:
+  mongo-data:
+
+networks:
+  backend-network:
+    driver: bridge
