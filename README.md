@@ -35,8 +35,8 @@ docker compose up
 
 Backend: [http://localhost:3000](http://localhost:3000)  
 Swagger: [http://localhost:3000/swagger/](http://localhost:3000/swagger/)  
-MongoDB: [vegito-db](mongodb://localhost:27017/vegito-db)
-Postman:[JSON PARA IMPORT EN POSTMAN](http://localhost:3000/swagger.json)
+MongoDB: [mongodb://localhost:27017/vegito-db](mongodb://localhost:27017/vegito-db)
+Postman: [http://localhost:3000/swagger.json](http://localhost:3000/swagger.json)
 
 ### 3.1. Como empezar
 
