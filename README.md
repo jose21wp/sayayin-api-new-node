@@ -21,44 +21,64 @@ API RESTful desarrollada en Node.js y MongoDB para gestionar personajes y transf
 ```bash
 git clone https://github.com/jose21wp/sayayin-api-new-node.git
 cd sayayin-api
+```
 
 ### 2. Iniciar con Docker
+
 PD: Antes de ejecutar docker verificar que este corriendo el servicio de docker en su equipo o si no no arrancará.
+
+```bash
 docker compose up
+```
 
 ### 3. Verificar con Swagger y conexiones
-Backend: http://localhost:3000
-Swagger: http://localhost:3000/swagger/
-MongoDB: localhost:27017/vegito-db 
+
+Backend: [http://localhost:3000](http://localhost:3000)  
+Swagger: [http://localhost:3000/swagger/](http://localhost:3000/swagger/)  
+MongoDB: [localhost:27017/vegito-db](mongodb://localhost:27017/vegito-db)
+
+### 3.1. Como empezar
+
+- 1.Crear user en /api/auth/register
+- 2.Ingresar Credenciales creadas en /api/auth/login, esto trae un TOKEN que es requerido en algunos endpoints.
+- 3.Interactuar con los endpoint en Postman o en Swagger.
 
 📘 Documentación Swagger
-Accesible en:
-http://localhost:3000/swagger/
+
+Accesible en: [http://localhost:3000/swagger/](http://localhost:3000/swagger/)  
+
 Incluye definición de esquemas, validaciones y ejemplos de payloads.
 
 🧪 Base de datos
 Para usar la consola de MongoDB desde Docker Desktop:
 
+```bash
 docker exec -it sayayin-mongo mongosh
 show dbs
-use vegitoDB
+use vegito-db
 show collections
 db.sayayins.find().pretty() # Colecciones de sayayins del proyecto
-db.users.find().pretty()# Colecciones de usuarios del proyecto
+db.users.find().pretty() # Colecciones de usuarios del proyecto
+```
 
-🛠️ Endpoints disponibles
-# Sayayins
+### 4. 🛠️ Endpoints disponibles
+
+### Sayayins
+
 GET /api/sayayins
 GET /api/sayayins/:id
 POST /api/sayayins
 PUT /api/sayayins/:id
-DELETE /api/sayayins/:id 
+DELETE /api/sayayins/:id
 
-#Users
-POST /api/auth/register # Registra un usuario 
+### Users
+
+POST /api/auth/register # Registra un usuario
 POST /api/auth/login # Devuelve el token
 
-🧙‍♂️ Semilla de ejemplo
+### 5.🧙‍♂️ Body ejemplo Sayayin
+
+```bash
 json
 {
   "id": 2,
@@ -95,25 +115,27 @@ json
     }
   ]
 }
+```
 
-📂 Estructura del proyecto
-sayayin-api/ 
+### 6.📂 Estructura del proyecto
+
+sayayin-api/
 ├──scripts/
     └── seed.ts # Hace un insert de sayayines
 ├──src/
-    ├── config/ # Configuración general 
-    ├── controllers/ # Lógica de negocio por ruta 
+    ├── config/ # Configuración general
+    ├── controllers/ # Lógica de negocio por ruta
     ├── middlewares/ # Validaciones de auth
-    ├── models/ # Esquemas de Mongoose 
-    ├── routes/ # Rutas principales de la API 
+    ├── models/ # Esquemas de Mongoose
+    ├── routes/ # Rutas principales de la API
     └── index.ts # server api
-├── .dockerignore # Exclusiones para Docker build 
-├── .env # Variables de entorno 
+├── .dockerignore # Exclusiones para Docker build
+├── .env # Variables de entorno
 ├── docker-compose.yaml # Esto hace la magia para que se creen los Dockers
-├── Dockerfile # Configuración del contenedor para la API 
+├── Dockerfile # Configuración del contenedor para la API
 ├── entrypoint.sh # Script de inicialización del contenedor para primero generar el seed
-├── package.json # Dependencias y scripts 
-├── tsconfig.json # Configuración de TypeScript 
+├── package.json # Dependencias y scripts
+├── tsconfig.json # Configuración de TypeScript
 └── README.md # Documentación del proyecto
 
 ✨ Autor
