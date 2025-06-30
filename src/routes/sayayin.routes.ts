@@ -6,6 +6,7 @@ import {
     actualizarSayayin,
     eliminarSayayin
 } from '../controllers/sayayin.controller';
+import { AuthVerify } from '../middlewares/auth.middleware';
 
 const sayayinRouter = Router();
 
@@ -19,6 +20,13 @@ const sayayinRouter = Router();
 /**
  * @swagger
  * components:
+ *   securitySchemes:
+ *     bearerAuth:
+ *       type: http
+ *       scheme: bearer
+ *       bearerFormat: JWT
+ *       description: >-
+ *         Ingresa tu token JWT obtenido desde /api/auth/login.  
  *   schemas:
  *     Planet:
  *       type: object
@@ -102,6 +110,8 @@ const sayayinRouter = Router();
  *   post:
  *     summary: Crear un nuevo Sayayin
  *     tags: [Sayayin]
+ *     security:
+ *       - bearerAuth: []
  *     requestBody:
  *       required: true
  *       content:
@@ -121,6 +131,8 @@ const sayayinRouter = Router();
  *   get:
  *     summary: Obtener un sayayin por ID
  *     tags: [Sayayin]
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
@@ -141,6 +153,8 @@ const sayayinRouter = Router();
  *   put:
  *     summary: Actualizar un sayayin por ID
  *     tags: [Sayayin]
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
@@ -165,6 +179,8 @@ const sayayinRouter = Router();
  *   delete:
  *     summary: Eliminar un sayayin por ID
  *     tags: [Sayayin]
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
@@ -179,6 +195,8 @@ const sayayinRouter = Router();
  *         description: Sayayin no encontrado
  */
 sayayinRouter.get('/', obtenerSayayines);
+// 🔐 Middleware global para rutas protegidas
+sayayinRouter.use(AuthVerify);
 sayayinRouter.post('/', crearSayayin);
 sayayinRouter.get('/:id', obtenerSayayin);
 sayayinRouter.put('/:id', actualizarSayayin);

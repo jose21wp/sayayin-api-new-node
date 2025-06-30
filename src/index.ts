@@ -7,6 +7,7 @@ import swaggerJSDoc, { Options } from 'swagger-jsdoc';
 import authRouter from './routes/auth.routes';
 import sayayinRouter from './routes/sayayin.routes';
 import { connectDB } from './config/db.mongo';
+import { swaggerSpec } from './config/swagger.config';
 dotenv.config();
 
 const app = express();
@@ -33,7 +34,7 @@ connectDB(); // Conexión a Mongo
     .catch((err) => console.error('❌ Error de MongoDB:', err));
  */
 // 📚 Swagger
-const swaggerOptions: Options = {
+/* const swaggerOptions: Options = {
     definition: {
         openapi: '3.0.0',
         info: {
@@ -47,7 +48,14 @@ const swaggerOptions: Options = {
 const swaggerSpec = swaggerJSDoc(swaggerOptions);
 app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
+ */
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
+// Si quieres exponer el JSON
+app.get('/swagger.json', (_, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
+});
 // 🚀 Server
 app.listen(PORT, () => {
     console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
